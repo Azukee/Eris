@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C46AD07E-7DB4-4ED3-98D4-F9FBCFA53F75}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{242E462E-AB84-4ADF-8350-FDCD42001918}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eris</RootNamespace>
-    <AssemblyName>Eris</AssemblyName>
+    <RootNamespace>ErisLib</RootNamespace>
+    <AssemblyName>ErisLib</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,16 +36,22 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Cryptography\RC4.cs" />
+    <Compile Include="Game\GameData.cs" />
+    <Compile Include="Game\Interfaces\IStructure.cs" />
+    <Compile Include="Game\Packets\PacketStructure.cs" />
+    <Compile Include="Game\Utils\XDocumentExtensions.cs" />
+    <Compile Include="Proxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ErisLib\ErisLib.csproj">
-      <Project>{242e462e-ab84-4adf-8350-fdcd42001918}</Project>
-      <Name>ErisLib</Name>
-    </ProjectReference>
+    <Compile Include="Server\Client.cs" />
+    <Compile Include="Server\CustomBuffer.cs" />
+    <Compile Include="Server\Packets\Client\HelloPacket.cs" />
+    <Compile Include="Server\Packets\Models\PacketType.cs" />
+    <Compile Include="Server\Packets\Packet.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
