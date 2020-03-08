@@ -66,8 +66,12 @@ namespace ErisLib.Server
         {
             CustomBuffer cb = isClient ? _clientBuffer : _serverBuffer;
             NetworkStream ns = isClient ? _clientStream : _serverStream;
-
-            ns.BeginRead(cb.Buffer, offset, count, ReadCallback, (ns, cb));
+            try { 
+                ns.BeginRead(cb.Buffer, offset, count, ReadCallback, (ns, cb));}
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                Dispose();
+            }
         }
 
         public void Dispose()
