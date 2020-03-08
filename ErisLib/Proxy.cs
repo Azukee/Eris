@@ -76,7 +76,7 @@ namespace ErisLib
         {
             if (!_genericPacketHooks.ContainsKey(callb)) {
                 _genericPacketHooks.Add(callb, typeof(T));
-                Console.WriteLine($"[HOOKS] Successfully hooked {typeof(T).Name}");
+                Console.WriteLine($"[HOOKS] Successfully hooked {typeof(T).Name} - {callb.Method.DeclaringType?.Name +"."+ callb.Method.Name}");
             } else
                 return; //todo: log something here
         }
