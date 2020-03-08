@@ -52,7 +52,13 @@
     <Compile Include="Server\CustomBuffer.cs" />
     <Compile Include="Server\Packets\Client\HelloPacket.cs" />
     <Compile Include="Server\Packets\Client\LoadPacket.cs" />
+    <Compile Include="Server\Packets\Models\Entity.cs" />
+    <Compile Include="Server\Packets\Models\Location.cs" />
     <Compile Include="Server\Packets\Models\PacketType.cs" />
+    <Compile Include="Server\Packets\Models\StatData.cs" />
+    <Compile Include="Server\Packets\Models\StatsType.cs" />
+    <Compile Include="Server\Packets\Models\Status.cs" />
+    <Compile Include="Server\Packets\Models\Tile.cs" />
     <Compile Include="Server\Packets\Packet.cs" />
     <Compile Include="Server\Packets\PacketReader.cs" />
     <Compile Include="Server\Packets\PacketWriter.cs" />
@@ -60,6 +66,7 @@
     <Compile Include="Server\Packets\Server\FailurePacket.cs" />
     <Compile Include="Server\Packets\Server\MapInfoPacket.cs" />
     <Compile Include="Server\Packets\Server\ReconnectPacket.cs" />
+    <Compile Include="Server\Packets\Server\UpdatePacket.cs" />
     <Compile Include="Server\StateHandler\State.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
