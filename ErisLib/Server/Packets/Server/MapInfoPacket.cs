@@ -20,8 +20,7 @@ namespace ErisLib.Server.Packets.Server
         public string[] ClientXML = new String[0];
         public string[] ExtraXML = new String[0];
 
-        public override PacketType Type
-        { get { return PacketType.MAPINFO; } }
+        public override PacketType Type => PacketType.MAPINFO;
 
         public override void Read(PacketReader r)
         {

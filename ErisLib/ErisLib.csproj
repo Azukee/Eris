@@ -51,6 +51,7 @@
     <Compile Include="Server\ConnectionHandler.cs" />
     <Compile Include="Server\CustomBuffer.cs" />
     <Compile Include="Server\Packets\Client\HelloPacket.cs" />
+    <Compile Include="Server\Packets\Client\LoadPacket.cs" />
     <Compile Include="Server\Packets\Models\PacketType.cs" />
     <Compile Include="Server\Packets\Packet.cs" />
     <Compile Include="Server\Packets\PacketReader.cs" />
