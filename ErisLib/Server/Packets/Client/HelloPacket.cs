@@ -71,10 +71,5 @@ namespace ErisLib.Server.Packets.Client
             w.Write(Secret2);
             w.Write(PreviousConnectionGuid);
         }
-
-        public void Pipe()
-        {
-            
-        }
     }
 }
