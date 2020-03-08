@@ -28,14 +28,15 @@ namespace ErisLib.Server.Packets
         {
             using (PacketReader r = new PacketReader(new MemoryStream(rawData))) {
                 int packetSize = r.ReadInt32();
-                byte packetID = r.ReadByte();
-                Console.WriteLine(packetID);
+                byte id = r.ReadByte();
+                Console.WriteLine(id);
 
-                PacketStructure st = Constants.GameData.Packets.ByID(packetID);
+                PacketStructure st = Constants.GameData.Packets.ByID(id);
                 PacketType pType = st.PacketType;
                 Type type = st.Type; 
                 Packet packet = (Packet)Activator.CreateInstance(type);
                 packet.PacketSize = packetSize;
+                packet.Id = id;
                 
                 packet.Read(r);
                 return packet;

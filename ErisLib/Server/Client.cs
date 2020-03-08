@@ -95,7 +95,7 @@ namespace ErisLib.Server
                 MemoryStream ms = new MemoryStream();
                 using (PacketWriter w = new PacketWriter(ms))
                 {
-                    w.Write((int)0);
+                    w.Write(packet.PacketSize);
                     w.Write(packet.Id);
                     packet.Write(w);
                 }
