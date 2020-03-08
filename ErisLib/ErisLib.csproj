@@ -72,6 +72,7 @@
     <Compile Include="Server\Packets\Server\CreateSuccessPacket.cs" />
     <Compile Include="Server\Packets\Server\FailurePacket.cs" />
     <Compile Include="Server\Packets\Server\GlobalNotificationPacket.cs" />
+    <Compile Include="Server\Packets\Server\GotoPacket.cs" />
     <Compile Include="Server\Packets\Server\MapInfoPacket.cs" />
     <Compile Include="Server\Packets\Server\NewTickPacket.cs" />
     <Compile Include="Server\Packets\Server\NotificationPacket.cs" />
