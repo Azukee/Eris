@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Cryptography\RC4.cs" />
+    <Compile Include="Game\GameConstants.cs" />
     <Compile Include="Game\GameData.cs" />
     <Compile Include="Game\Interfaces\IStructure.cs" />
     <Compile Include="Game\Packets\PacketStructure.cs" />
