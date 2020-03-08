@@ -7,7 +7,7 @@ namespace ErisLib.Server.Packets.Server
         public int ObjectId;
         public int CharId;
         
-        public override PacketType Type => PacketType.LOAD;
+        public override PacketType Type => PacketType.CREATESUCCESS;
 
         public override void Read(PacketReader r)
         {
