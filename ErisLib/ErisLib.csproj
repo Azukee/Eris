@@ -84,6 +84,7 @@
     <Compile Include="Server\Packets\Server\TextPacket.cs" />
     <Compile Include="Server\Packets\Server\UpdatePacket.cs" />
     <Compile Include="Server\StateHandler\State.cs" />
+    <Compile Include="Utilities\PluginUtilities.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -24,6 +24,21 @@ namespace ErisLib.Server.Packets
             w.Write(_data); // All of the packet data
         }
         
+        public static Packet Create(PacketType type)
+        {
+            PacketStructure st = Constants.GameData.Packets.ByName(type.ToString());
+            Packet packet = (Packet)Activator.CreateInstance(st.Type);
+            packet.Id = st.ID;
+            return packet;
+        }
+
+        public static T Create<T>(PacketType type)
+        {
+            Packet packet = (Packet)Activator.CreateInstance(typeof(T));
+            packet.Id = Constants.GameData.Packets.ByName(type.ToString()).ID;
+            return (T)Convert.ChangeType(packet, typeof(T));
+        }
+        
         public static Packet Construct(byte[] rawData)
         {
             using (PacketReader r = new PacketReader(new MemoryStream(rawData))) {
