@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using ErisLib.Server.Packets;
 using ErisLib.Server.Packets.Models;
 using ErisLib.Server.Packets.Server;
@@ -13,6 +16,15 @@ namespace ErisLib.Utilities
             notif.Message = "{\"key\":\"blank\",\"tokens\":{\"data\":\"" + message + "\"}}";
             notif.Color = color;
             return notif;
+        }
+        
+        public static void Delay(int ms, Action callback)
+        {
+            Task.Run(() =>
+            {
+                Thread.Sleep(ms);
+                callback();
+            });
         }
     }
 }

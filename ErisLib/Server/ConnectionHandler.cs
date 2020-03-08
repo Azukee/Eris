@@ -19,7 +19,9 @@ namespace ErisLib.Server
 
         private void OnCreateSuccess(Client client, CreateSuccessPacket packet)
         {
-            client.SendToClient(PluginUtilities.CreateNotification(client.ObjectId, 0x00FFFF, "Welcome to Eris!"));
+            PluginUtilities.Delay(2000, () => {
+                client.SendToClient(PluginUtilities.CreateNotification(client.ObjectId, 0x00F20A, "Welcome to Eris!"));
+            });
         }
 
         private void OnHello(Client client, HelloPacket packet)
