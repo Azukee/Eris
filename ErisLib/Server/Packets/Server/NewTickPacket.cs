@@ -1,3 +1,5 @@
+using ErisLib.Server.Packets.Models;
+
 namespace ErisLib.Server.Packets.Server
 {
     public class NewTickPacket : Packet
@@ -6,8 +8,7 @@ namespace ErisLib.Server.Packets.Server
         public int TickTime;
         public Status[] Statuses;
 
-        public override PacketType Type
-        { get { return PacketType.NEWTICK; } }
+        public override PacketType Type => PacketType.NEWTICK;
 
         public override void Read(PacketReader r)
         {
