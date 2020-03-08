@@ -52,8 +52,11 @@
     <Compile Include="Server\CustomBuffer.cs" />
     <Compile Include="Server\Packets\Client\HelloPacket.cs" />
     <Compile Include="Server\Packets\Client\LoadPacket.cs" />
+    <Compile Include="Server\Packets\Client\MovePacket.cs" />
+    <Compile Include="Server\Packets\Client\UpdateAckPacket.cs" />
     <Compile Include="Server\Packets\Models\Entity.cs" />
     <Compile Include="Server\Packets\Models\Location.cs" />
+    <Compile Include="Server\Packets\Models\LocationRecord.cs" />
     <Compile Include="Server\Packets\Models\PacketType.cs" />
     <Compile Include="Server\Packets\Models\StatData.cs" />
     <Compile Include="Server\Packets\Models\StatsType.cs" />
@@ -68,6 +71,7 @@
     <Compile Include="Server\Packets\Server\GlobalNotificationPacket.cs" />
     <Compile Include="Server\Packets\Server\MapInfoPacket.cs" />
     <Compile Include="Server\Packets\Server\NewTickPacket.cs" />
+    <Compile Include="Server\Packets\Server\PingPacket.cs" />
     <Compile Include="Server\Packets\Server\ReconnectPacket.cs" />
     <Compile Include="Server\Packets\Server\TextPacket.cs" />
     <Compile Include="Server\Packets\Server\UpdatePacket.cs" />
