@@ -36,8 +36,7 @@ namespace ErisLib.Server.Packets.Server
             w.Write(NumStars);
             w.Write(BubbleTime);
             w.Write(Recipient);
-            w.Write("Welcome to Eris");
-            w.Write("Welcome to Eris");
+            w.Write(Text);
             w.Write(CleanText);
             w.Write(IsSupporter);
             w.Write(StarBg);
