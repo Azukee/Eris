@@ -16,7 +16,7 @@ namespace ErisLib.Game.Packets
             Dictionary<byte, PacketStructure> map = new Dictionary<byte, PacketStructure>();
 
             doc.Element("Packets")
-                .Elements("Packet")
+                ?.Elements("Packet")
                 .ForEach(packet => {
                     PacketStructure p = new PacketStructure(packet);
                     map[p.ID] = p;
