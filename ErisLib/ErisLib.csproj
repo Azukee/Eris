@@ -57,6 +57,7 @@
     <Compile Include="Server\Packets\Client\MovePacket.cs" />
     <Compile Include="Server\Packets\Client\PongPacket.cs" />
     <Compile Include="Server\Packets\Client\UpdateAckPacket.cs" />
+    <Compile Include="Server\Packets\Client\UsePortalPacket.cs" />
     <Compile Include="Server\Packets\Models\Entity.cs" />
     <Compile Include="Server\Packets\Models\Location.cs" />
     <Compile Include="Server\Packets\Models\LocationRecord.cs" />
