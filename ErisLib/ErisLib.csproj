@@ -67,7 +67,7 @@
     <Compile Include="Server\Packets\PacketReader.cs" />
     <Compile Include="Server\Packets\PacketWriter.cs" />
     <Compile Include="Server\Packets\Server\AccountListPacket.cs" />
-    <Compile Include="Server\Packets\Server\AllyShoot.cs" />
+    <Compile Include="Server\Packets\Server\AllyShootPacket.cs" />
     <Compile Include="Server\Packets\Server\CreateSuccessPacket.cs" />
     <Compile Include="Server\Packets\Server\FailurePacket.cs" />
     <Compile Include="Server\Packets\Server\GlobalNotificationPacket.cs" />
