@@ -29,7 +29,6 @@ namespace ErisLib.Server.Packets
             using (PacketReader r = new PacketReader(new MemoryStream(rawData))) {
                 int packetSize = r.ReadInt32();
                 byte id = r.ReadByte();
-                Console.WriteLine(id);
 
                 PacketStructure st = Constants.GameData.Packets.ByID(id);
                 PacketType pType = st.PacketType;
