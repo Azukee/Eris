@@ -6,7 +6,7 @@ namespace ErisLib.Server.Packets.Server
     public class AccountListPacket : Packet
     {
         public int AccountListID;
-        public List<string> AccountIds;
+        public List<string> AccountIds = new List<string>();
         public int LockAction = -1;
         
         public override PacketType Type => PacketType.ACCOUNTLIST;
@@ -14,7 +14,8 @@ namespace ErisLib.Server.Packets.Server
         public override void Read(PacketReader r)
         {
             AccountListID = r.ReadInt32();
-            for(int i = 0; i < r.ReadInt16(); i++)
+            int length = r.ReadInt16();
+            for(int i = 0; i < length; i++)
                 AccountIds.Add(r.ReadString());
             LockAction = r.ReadInt32();
         }
