@@ -1,5 +1,7 @@
 using System;
 using ErisLib.Server.Packets.Client;
+using ErisLib.Server.Packets.Server;
+using ErisLib.Utilities;
 
 namespace ErisLib.Server
 {
@@ -12,6 +14,12 @@ namespace ErisLib.Server
         {
             _proxy = proxy;
             proxy.HookPacket<HelloPacket>(OnHello);
+            proxy.HookPacket<CreateSuccessPacket>(OnCreateSuccess);
+        }
+
+        private void OnCreateSuccess(Client client, CreateSuccessPacket packet)
+        {
+            client.SendToClient(PluginUtilities.CreateNotification(client.ObjectId, 0x00FFFF, "Welcome to Eris!"));
         }
 
         private void OnHello(Client client, HelloPacket packet)

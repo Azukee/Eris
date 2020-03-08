@@ -30,6 +30,7 @@ namespace ErisLib
             States = new Dictionary<string, State>();
             _genericPacketHooks = new Dictionary<object, Type>();
             
+            new StateManager().Attach(this);
             new Server.ConnectionHandler().Attach(this);
         }
 

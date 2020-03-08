@@ -55,6 +55,7 @@
     <Compile Include="Server\Packets\Client\HelloPacket.cs" />
     <Compile Include="Server\Packets\Client\LoadPacket.cs" />
     <Compile Include="Server\Packets\Client\MovePacket.cs" />
+    <Compile Include="Server\Packets\Client\PlayerShootPacket.cs" />
     <Compile Include="Server\Packets\Client\PongPacket.cs" />
     <Compile Include="Server\Packets\Client\UpdateAckPacket.cs" />
     <Compile Include="Server\Packets\Client\UsePortalPacket.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Server\Packets\Models\Location.cs" />
     <Compile Include="Server\Packets\Models\LocationRecord.cs" />
     <Compile Include="Server\Packets\Models\PacketType.cs" />
+    <Compile Include="Server\Packets\Models\PlayerData.cs" />
     <Compile Include="Server\Packets\Models\StatData.cs" />
     <Compile Include="Server\Packets\Models\StatsType.cs" />
     <Compile Include="Server\Packets\Models\Status.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Server\Packets\Server\TextPacket.cs" />
     <Compile Include="Server\Packets\Server\UpdatePacket.cs" />
     <Compile Include="Server\StateHandler\State.cs" />
+    <Compile Include="Server\StateHandler\StateManager.cs" />
     <Compile Include="Utilities\PluginUtilities.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

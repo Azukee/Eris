@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using ErisLib.Cryptography;
 using ErisLib.Server.Packets;
 using ErisLib.Server.Packets.Client;
+using ErisLib.Server.Packets.Models;
 using ErisLib.Server.StateHandler;
 
 namespace ErisLib.Server
@@ -16,6 +17,9 @@ namespace ErisLib.Server
         private const string IncomingKey = "c79332b197f92ba85ed281a023";
 
         private bool _closed = false;
+        
+        public int LastUpdate = 0;
+        public int PreviousTime = 0;
         
         private Proxy _proxy;
         private TcpClient _tcpClient;
@@ -87,6 +91,14 @@ namespace ErisLib.Server
                 _serverBuffer.Dispose();
             }
         }
+        
+        public int ObjectId => PlayerData.OwnerObjectId;
+
+        public PlayerData PlayerData { get; set; }
+
+        public void SendToClient(Packet packet) => Send(packet, true);
+
+        public void SendToServer(Packet packet) => Send(packet, false);
         
         private void Send(Packet packet, bool client)
         {
