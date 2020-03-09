@@ -10,7 +10,7 @@ namespace ErisLib.Server.Packets.Server
         public Location PosA;
         public Location PosB;
         public ARGB Color;
-        public double Duration;
+        public float Duration;
 
         public override PacketType Type => PacketType.SHOWEFFECT;
 
@@ -18,8 +18,8 @@ namespace ErisLib.Server.Packets.Server
         {
             EffectType = (EffectType)r.ReadByte();
             TargetId = r.ReadInt32();
-            PosA =(Location) new Location().Read(r);
-            PosB = (Location) new Location().Read(r);
+            PosA = new Location().Read(r);
+            PosB = new Location().Read(r);
             Color = ARGB.Read(r);
             Duration = r.ReadSingle();
         }

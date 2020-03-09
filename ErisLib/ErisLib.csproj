@@ -88,6 +88,7 @@
     <Compile Include="Server\Packets\Server\NewTickPacket.cs" />
     <Compile Include="Server\Packets\Server\NotificationPacket.cs" />
     <Compile Include="Server\Packets\Server\PingPacket.cs" />
+    <Compile Include="Server\Packets\Server\QuestObjIdPacket.cs" />
     <Compile Include="Server\Packets\Server\ReconnectPacket.cs" />
     <Compile Include="Server\Packets\Server\ShowEffectPacket.cs" />
     <Compile Include="Server\Packets\Server\TextPacket.cs" />
