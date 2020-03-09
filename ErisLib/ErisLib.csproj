@@ -60,6 +60,7 @@
     <Compile Include="Server\Packets\Client\InvSwapPacket.cs" />
     <Compile Include="Server\Packets\Client\LoadPacket.cs" />
     <Compile Include="Server\Packets\Client\MovePacket.cs" />
+    <Compile Include="Server\Packets\Client\OtherHitPacket.cs" />
     <Compile Include="Server\Packets\Client\PlayerHitPacket.cs" />
     <Compile Include="Server\Packets\Client\PlayerShootPacket.cs" />
     <Compile Include="Server\Packets\Client\PlayerTextPacket.cs" />
