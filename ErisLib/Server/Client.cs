@@ -8,6 +8,7 @@ using ErisLib.Server.Packets;
 using ErisLib.Server.Packets.Client;
 using ErisLib.Server.Packets.Models;
 using ErisLib.Server.StateHandler;
+using ErisLib.Utilities;
 
 namespace ErisLib.Server
 {
@@ -152,10 +153,10 @@ namespace ErisLib.Server
             }
             else {
                 currCipher.Cipher(cb.Buffer);
-                Console.WriteLine("Received Data! Size: " + cb.Buffer.Length);
+                ConsoleUtilities.VerboseWriteLine("Received Data! Size: " + cb.Buffer.Length);
                 
                 Packet p = Packet.Construct(cb.Buffer);
-                Console.WriteLine("Received Data is a " + p.Type + " packet!");
+                ConsoleUtilities.VerboseWriteLine("Received Data is a " + p.Type + " packet!");
                 
                 if (isClient)
                     _proxy.ClientPacketSent(this, p);

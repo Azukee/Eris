@@ -10,7 +10,7 @@ namespace Eris
         [STAThread]
         public static void Main(string[] args)
         {
-            proxy = new Proxy();
+            proxy = new Proxy(true);
             
             Console.WriteLine("Attempting to start proxy...");
             

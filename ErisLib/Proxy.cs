@@ -23,10 +23,10 @@ namespace ErisLib
         public Dictionary<string, State> States;
         
         private Dictionary<object, Type> _genericPacketHooks;
-        public Proxy()
+        public Proxy(bool verbose = false)
         {
             //Construct Constants
-            Constants.ConstructConstants();
+            Constants.ConstructConstants(verbose);
             States = new Dictionary<string, State>();
             _genericPacketHooks = new Dictionary<object, Type>();
             
