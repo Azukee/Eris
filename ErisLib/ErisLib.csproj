@@ -63,6 +63,7 @@
     <Compile Include="Server\Packets\Client\PlayerShootPacket.cs" />
     <Compile Include="Server\Packets\Client\PlayerTextPacket.cs" />
     <Compile Include="Server\Packets\Client\PongPacket.cs" />
+    <Compile Include="Server\Packets\Client\ShootAckPacket.cs" />
     <Compile Include="Server\Packets\Client\UpdateAckPacket.cs" />
     <Compile Include="Server\Packets\Client\UseItemPacket.cs" />
     <Compile Include="Server\Packets\Client\UsePortalPacket.cs" />
