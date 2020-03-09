@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using ErisLib.Server.Packets.Client;
 using ErisLib.Server.Packets.Models;
 using ErisLib.Server.Packets.Server;
@@ -58,21 +60,21 @@ namespace ErisLib.Server.StateHandler
 
             State resolvedState = null;
 
-            /*foreach (State cstate in _proxy.States.Values)
-                if (cstate.ACCID == client.PlayerData.AccountId)
-                    resolvedState = cstate;
+            foreach (var cstate in _proxy.States.Values.Where(cstate => cstate.ACCID == client.PlayerData.AccountId))
+                resolvedState = cstate;
 
             if (resolvedState == null)
                 client.State.ACCID = client.PlayerData.AccountId;
             else
-            {
-                foreach (var pair in client.State.States)
-                    resolvedState[pair.Key] = pair.Value;
-                foreach (var pair in client.State.States)
-                    resolvedState[pair.Key] = pair.Value;
+            {   
+                // Info: I use a "cache" here in order to not make the application throw a "Collection Modified" exception and halt execution
+                Dictionary<string, dynamic> cache = client.State.States.ToDictionary(pair => pair.Key, pair => pair.Value);
+
+                foreach(var pair in cache) 
+                    resolvedState.States[pair.Key] = pair.Value;
 
                 client.State = resolvedState;
-            }*/
+            }
         }
     }
 }

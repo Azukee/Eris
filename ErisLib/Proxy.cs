@@ -52,6 +52,8 @@ namespace ErisLib
             Client client = new Client(this, tcpClient);
             
             ClientBeginConnect?.Invoke(client);
+            
+            _tcpListener?.BeginAcceptTcpClient(TcpListenerCallback, null);
         }
 
         public State GetState(Client client, byte[] key)

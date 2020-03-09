@@ -142,8 +142,7 @@ namespace ErisLib.Server
             int read = ns.EndRead(ar);
             cb.Walk(read);
 
-            if (read == 0)
-            {
+            if (read == 0) {
                 Dispose();    
             }else if (cb.Idx == 4) {
                 cb.ResizeBuffer(IPAddress.NetworkToHostOrder(BitConverter.ToInt32(cb.Buffer, 0)));

@@ -29,9 +29,8 @@ namespace ErisLib.Server.StateHandler
         public T Value<T>(string stateName)
         {
             Type type = typeof(T);
-            object value = null;
 
-            if (!States.TryGetValue(stateName, out value))
+            if (!States.TryGetValue(stateName, out var value))
             {
                 value = Activator.CreateInstance(type);
                 States.Add(stateName, value);
@@ -43,11 +42,10 @@ namespace ErisLib.Server.StateHandler
         {
             get
             {
-                dynamic value = null;
-                States.TryGetValue(stateName, out value);
+                States.TryGetValue(stateName, out var value);
                 return value;
             }
-            set { States[stateName] = value; }
+            set => States[stateName] = value;
         }
     }
 }
