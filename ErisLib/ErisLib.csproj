@@ -55,6 +55,7 @@
     <Compile Include="Server\Packets\Client\ClientStatPacket.cs" />
     <Compile Include="Server\Packets\Client\GotoAckPacket.cs" />
     <Compile Include="Server\Packets\Client\HelloPacket.cs" />
+    <Compile Include="Server\Packets\Client\InvSwapPacket.cs" />
     <Compile Include="Server\Packets\Client\LoadPacket.cs" />
     <Compile Include="Server\Packets\Client\MovePacket.cs" />
     <Compile Include="Server\Packets\Client\PlayerShootPacket.cs" />
