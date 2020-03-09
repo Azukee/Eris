@@ -42,22 +42,20 @@ namespace Eris
                 Assembly pAssembly = Assembly.LoadFrom(pPath);
 
                 foreach (Type pType in pAssembly.GetTypes()) {
-                    if (pType.IsPublic && !pType.IsAbstract) {
-                        try {
-                            Type tInterface = pType.GetInterface("ErisLib.Interfaces.IPlugin");
+                    if (!pType.IsPublic || pType.IsAbstract) continue;
+                    try {
 
-                            if (tInterface != null)
-                                AttachPlugin(pType);
-                        }
-                        catch (Exception e) {
-                            // ignored
-                        }
+                        if (pType.GetInterface("ErisLib.Interfaces.IPlugin") != null)
+                            AttachPlugin(pType);
+                    }
+                    catch (Exception e) {
+                        // ignored
                     }
                 }
             }
         }
-        
-        public static void AttachPlugin(Type type)
+
+        private static void AttachPlugin(Type type)
         {
             IPlugin instance = (IPlugin)Activator.CreateInstance(type);
             string name = instance.Name();
