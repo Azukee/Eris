@@ -8,9 +8,12 @@ namespace ErisLib.Utilities
         {
             if (Constants.Verbose) {
                 string t = tag == null ? "[VERBOSE]" : $"[{tag}]";
-                ColorWriteLine($"{t} {value}", ConsoleColor.Gray);
+                ColorWriteLine($"{t} {value}", ConsoleColor.Magenta);
             }
         }
+
+        public static void TagWriteLine(string value, string tag, ConsoleColor color) =>
+            ColorWriteLine($"[{tag}] {value}", color);
 
         public static void ColorWriteLine(string value, ConsoleColor color)
         {

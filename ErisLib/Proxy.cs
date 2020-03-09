@@ -8,6 +8,7 @@ using System.Text;
 using ErisLib.Server;
 using ErisLib.Server.Packets;
 using ErisLib.Server.StateHandler;
+using ErisLib.Utilities;
 
 namespace ErisLib
 {
@@ -47,7 +48,7 @@ namespace ErisLib
 
         private void TcpListenerCallback(IAsyncResult ar)
         {
-            Console.WriteLine("Callback triggered");
+            Console.WriteLine("--- RECV CLIENT ---");
             TcpClient tcpClient = _tcpListener.EndAcceptTcpClient(ar);
             Client client = new Client(this, tcpClient);
             
@@ -78,7 +79,7 @@ namespace ErisLib
         {
             if (!_genericPacketHooks.ContainsKey(callb)) {
                 _genericPacketHooks.Add(callb, typeof(T));
-                Console.WriteLine($"[HOOKS] Successfully hooked {typeof(T).Name} - {callb.Method.DeclaringType?.Name +"."+ callb.Method.Name}");
+                ConsoleUtilities.TagWriteLine($"Successfully hooked {typeof(T).Name} - {callb.Method.DeclaringType?.Name +"."+ callb.Method.Name}", "HOOKS", ConsoleColor.Cyan);
             } else
                 return; //todo: log something here
         }

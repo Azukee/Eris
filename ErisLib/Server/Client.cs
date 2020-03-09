@@ -118,13 +118,13 @@ namespace ErisLib.Server
 
                 if (client)
                 {
-                    Console.WriteLine($"Sent {packet.Type} to the client");
+                    ConsoleUtilities.VerboseWriteLine($"Sent {packet.Type} to the client");
                     _clientSendCipher.Cipher(data);
                     _clientStream.Write(data, 0, data.Length);
                 }
                 else
                 {
-                    Console.WriteLine($"Sent {packet.Type} to the server");
+                    ConsoleUtilities.VerboseWriteLine($"Sent {packet.Type} to the server");
                     _serverSendCipher.Cipher(data);
                     _serverStream.Write(data, 0, data.Length);
                 }
