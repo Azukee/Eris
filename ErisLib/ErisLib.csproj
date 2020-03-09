@@ -61,12 +61,14 @@
     <Compile Include="Server\Packets\Client\PlayerTextPacket.cs" />
     <Compile Include="Server\Packets\Client\PongPacket.cs" />
     <Compile Include="Server\Packets\Client\UpdateAckPacket.cs" />
+    <Compile Include="Server\Packets\Client\UseItemPacket.cs" />
     <Compile Include="Server\Packets\Client\UsePortalPacket.cs" />
     <Compile Include="Server\Packets\Models\Entity.cs" />
     <Compile Include="Server\Packets\Models\Location.cs" />
     <Compile Include="Server\Packets\Models\LocationRecord.cs" />
     <Compile Include="Server\Packets\Models\PacketType.cs" />
     <Compile Include="Server\Packets\Models\PlayerData.cs" />
+    <Compile Include="Server\Packets\Models\Slot.cs" />
     <Compile Include="Server\Packets\Models\StatData.cs" />
     <Compile Include="Server\Packets\Models\StatsType.cs" />
     <Compile Include="Server\Packets\Models\Status.cs" />
