@@ -83,6 +83,7 @@
     <Compile Include="Server\Packets\Server\AllyShootPacket.cs" />
     <Compile Include="Server\Packets\Server\CreateSuccessPacket.cs" />
     <Compile Include="Server\Packets\Server\DamagePacket.cs" />
+    <Compile Include="Server\Packets\Server\EnemyShootPacket.cs" />
     <Compile Include="Server\Packets\Server\FailurePacket.cs" />
     <Compile Include="Server\Packets\Server\GlobalNotificationPacket.cs" />
     <Compile Include="Server\Packets\Server\GotoPacket.cs" />
