@@ -83,8 +83,8 @@ namespace ErisLib.Server
             if (client.State.ConRealKey.Length != 0) {
                 packet.Key = client.State.ConRealKey;
                 client.State.ConRealKey = new byte[0];
-                Console.WriteLine($"[HELLO PACKET] Packet Key: {packet.Key}\r\n" +
-                                  $"               State  Key: {client.State.ConRealKey}");
+                Console.WriteLine($"[HELLO PACKET] Packet Key: {Encoding.ASCII.GetString(packet.Key)}\r\n" +
+                                  $"               State  Key: {Encoding.ASCII.GetString(client.State.ConRealKey)}");
             }
 
             client.Connect(packet);
