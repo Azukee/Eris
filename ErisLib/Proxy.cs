@@ -7,6 +7,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using ErisLib.Server;
 using ErisLib.Server.Packets;
+using ErisLib.Server.Packets.Client;
+using ErisLib.Server.Packets.Models;
 using ErisLib.Server.StateHandler;
 using ErisLib.Utilities;
 
@@ -14,6 +16,7 @@ namespace ErisLib
 {
     public delegate void ConnectionHandler(Client client);
     public delegate void GenericPacketHandler<T>(Client client, T packet) where T : Packet;
+    public delegate void CommandHandler(Client client, string command, string[] args);
  
     public class Proxy
     {
@@ -24,12 +27,15 @@ namespace ErisLib
         public Dictionary<string, State> States;
         
         private Dictionary<object, Type> _genericPacketHooks;
+        private Dictionary<CommandHandler, List<string>> _commandHooks;
+        
         public Proxy(bool verbose = false)
         {
             //Construct Constants
             Constants.ConstructConstants(verbose);
             States = new Dictionary<string, State>();
             _genericPacketHooks = new Dictionary<object, Type>();
+            _commandHooks = new Dictionary<CommandHandler, List<string>>();
             
             new StateManager().Attach(this);
             new Server.ConnectionHandler().Attach(this);
@@ -75,6 +81,18 @@ namespace ErisLib
             return newState;
         }
         
+        public void HookCommand(string command, CommandHandler callback)
+        {
+            if (_commandHooks.ContainsKey(callback))
+                _commandHooks[callback].Add(command);
+            else
+                _commandHooks.Add(callback, new List<string>() { command[0] == '/' 
+                    ? new string(command.Skip(1).ToArray()).ToLower() 
+                    : command.ToLower() } );    
+            ConsoleUtilities.TagWriteLine($"Successfully hooked {command} - {callback.Method.DeclaringType?.Name +"."+ callback.Method.Name}", "HOOKS", ConsoleColor.Cyan);
+
+        }
+        
         public void HookPacket<T>(GenericPacketHandler<T> callb) where T : Packet
         {
             if (!_genericPacketHooks.ContainsKey(callb)) {
@@ -94,6 +112,23 @@ namespace ErisLib
         
         public void ClientPacketSent(Client client, Packet packet)
         {
+            if (packet.Type == PacketType.PLAYERTEXT) {
+                PlayerTextPacket playerText = (PlayerTextPacket)packet;
+                string text = playerText.Text.Replace("/", "").ToLower();
+                string command = text.Contains(' ')
+                    ? text.Split(' ')[0].ToLower()
+                    : text;
+                string[] args = text.Contains(' ')
+                    ? text.Split(' ').Skip(1).ToArray()
+                    : new string[0];
+
+                foreach (var pair in _commandHooks)
+                    if (pair.Value.Contains(command)) {
+                        packet.Send = false;
+                        pair.Key(client, command, args);
+                    }
+            }
+            
             foreach (var pair in _genericPacketHooks.Where(pair => pair.Value == packet.GetType())) {
                 (pair.Key as Delegate)?.Method.Invoke((pair.Key as Delegate)?.Target, 
                     new object[2] { client, Convert.ChangeType(packet, pair.Value) });
