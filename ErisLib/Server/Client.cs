@@ -120,13 +120,15 @@ namespace ErisLib.Server
                 {
                     ConsoleUtilities.VerboseWriteLine($"Sent {packet.Type} to the client");
                     _clientSendCipher.Cipher(data);
-                    _clientStream.Write(data, 0, data.Length);
+                    if (!_closed)
+                        _clientStream.Write(data, 0, data.Length);
                 }
                 else
                 {
                     ConsoleUtilities.VerboseWriteLine($"Sent {packet.Type} to the server");
                     _serverSendCipher.Cipher(data);
-                    _serverStream.Write(data, 0, data.Length);
+                    if (!_closed)
+                        _serverStream.Write(data, 0, data.Length);
                 }
             }
         }
