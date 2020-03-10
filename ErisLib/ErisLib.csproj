@@ -104,6 +104,7 @@
     <Compile Include="Server\StateHandler\State.cs" />
     <Compile Include="Server\StateHandler\StateManager.cs" />
     <Compile Include="Utilities\ConsoleUtilities.cs" />
+    <Compile Include="Utilities\LoggingUtilities.cs" />
     <Compile Include="Utilities\PluginUtilities.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,12 +2,12 @@ namespace ErisLib.Server.Packets.Models
 {
     public class Entity
     {
-        public short ObjectType;
+        public int ObjectType;
         public Status Status = new Status();
 
         public Entity Read(PacketReader r)
         {
-            ObjectType = r.ReadInt16();
+            ObjectType = (int)r.ReadUInt16();
             Status.Read(r);
 
             return this;
@@ -15,7 +15,7 @@ namespace ErisLib.Server.Packets.Models
 
         public void Write(PacketWriter w)
         {
-            w.Write(ObjectType);
+            w.Write((ushort)ObjectType);
             Status.Write(w);
         }
     }

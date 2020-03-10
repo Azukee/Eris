@@ -108,18 +108,18 @@ namespace ErisLib.Server
                 MemoryStream ms = new MemoryStream();
                 using (PacketWriter w = new PacketWriter(ms))
                 {
-                    w.Write(packet.PacketSize);
+                    w.Write(0);
                     w.Write(packet.Id);
                     packet.Write(w);
                 }
 
                 byte[] data = ms.ToArray();
                 PacketWriter.BlockCopyInt32(data, data.Length);
-
                 if (client)
                 {
                     ConsoleUtilities.VerboseWriteLine($"Sent {packet.Type} to the client");
                     _clientSendCipher.Cipher(data);
+                    LoggingUtilities.LogPacketToFile(packet, client);
                     if (!_closed)
                         _clientStream.Write(data, 0, data.Length);
                 }

@@ -11,7 +11,7 @@ namespace ErisLib.Server.StateHandler
         public string ACCID;
 
         public byte[] ConRealKey = new byte[0];
-        public string ConTargetAddress = "54.237.156.49";
+        public string ConTargetAddress = "34.243.37.98";
         public int ConTargetPort = 2050;
 
         public ReconnectPacket LastRealm = null;

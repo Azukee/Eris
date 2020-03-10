@@ -1,5 +1,8 @@
 using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using ErisLib.Game;
 using ErisLib.Game.Packets;
 using ErisLib.Server.Packets.Models;
@@ -55,6 +58,18 @@ namespace ErisLib.Server.Packets
                 packet.Read(r);
                 return packet;
             }
+        }
+        
+        public override string ToString()
+        {
+            FieldInfo[] fields = GetType().GetFields(BindingFlags.Public |
+                                                     BindingFlags.NonPublic |
+                                                     BindingFlags.Instance);
+
+            string result = Type + "(" + Id + ") Packet";
+            foreach (var field in fields) 
+                result = result + ("\n\t" + field.Name + " : " + field.GetValue(this));
+            return result;
         }
     }
 }
