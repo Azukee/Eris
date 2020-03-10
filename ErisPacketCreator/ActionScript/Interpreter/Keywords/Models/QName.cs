@@ -13,7 +13,7 @@ namespace ErisPacketCreator.ActionScript.Interpreter.Keywords.Models
         private QName(string rawString)
         {
             _rawQName = rawString;
-            PackageNamespace = _rawQName.Split('(')[2].Split(')')[0];
+            PackageNamespace = _rawQName.Split('(')[2].Split(')')[0].Replace("\"", "");
             Name = _rawQName.Split(')')[1].Split('"')[1];
         }
 
@@ -28,7 +28,7 @@ namespace ErisPacketCreator.ActionScript.Interpreter.Keywords.Models
             _rawQName = rawString;
             if (entireTrait) {
                 string split = _rawQName.Split(new[] {"QName"}, StringSplitOptions.None)[1];
-                PackageNamespace = split.Split('(')[1].Split(')')[0];
+                PackageNamespace = split.Split('(')[1].Split(')')[0].Replace("\"", "");
                 Name = split.Split(new[] {", \""}, StringSplitOptions.None)[1].Split('"')[0];
             }
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ErisPacketCreator.ActionScript.Interpreter.Keywords.Method;
 using ErisPacketCreator.ActionScript.Interpreter.Keywords.Models;
 
 namespace ErisPacketCreator.ActionScript.Interpreter.Keywords
@@ -30,15 +31,21 @@ namespace ErisPacketCreator.ActionScript.Interpreter.Keywords
             
             // Skip everything until method traits
             // TODO: Implement loading all other information later
-            
-            while (!acr.PeekString().Contains("trait method"))
-                acr.ReadString();
+DoCycle:
+            while (!acr.PeekString().Contains("trait method") && !acr.PeekString().Contains("end ; instance")) {
+                string xa;
+                xa = acr.ReadString();
+            }
 
+            if (acr.PeekString().Contains("end ; instance"))
+                return this;
+            
             QName method = new QName(acr.ReadString());
             
             MethodKeyword mk = new MethodKeyword(acr);
+            Methods.Add(mk);
             
-            return this;
+goto DoCycle;
         }
     }
 }

@@ -1,7 +1,8 @@
+using System;
 using System.Collections.Generic;
 using ErisPacketCreator.ActionScript.Interpreter.Keywords.Models;
 
-namespace ErisPacketCreator.ActionScript.Interpreter.Keywords
+namespace ErisPacketCreator.ActionScript.Interpreter.Keywords.Method
 {
     /// <summary>
     /// Models the Method Keyword from ActionScript Assembly
@@ -20,21 +21,24 @@ namespace ErisPacketCreator.ActionScript.Interpreter.Keywords
 
         /// <summary>
         /// List of all the parameters the method take
-        /// <remarks>CURRENTLY NOT USED
-        /// TODO: IMPLEMENT THIS
-        /// </remarks>
         /// </summary>
         public List<QName> Parameters;
 
         /// <summary>
         /// The return type of the method
-        /// <remarks>CURRENTLY NOT USED
-        /// TODO: IMPLEMENT THIS
-        /// </remarks>
         /// </summary>
         public QName ReturnType;
-        
-        public MethodKeyword(ActionScriptReader acr) => Parse(acr);
+
+        /// <summary>
+        /// The Body of the method, containing info of the code and the code itself
+        /// </summary>
+        public BodyKeyword Body;
+
+        public MethodKeyword(ActionScriptReader acr)
+        {
+            Parameters = new List<QName>();
+            Parse(acr);
+        }
         
         public IKeyword Parse(ActionScriptReader acr)
         {
@@ -44,7 +48,13 @@ namespace ErisPacketCreator.ActionScript.Interpreter.Keywords
             Name = acr.ReadString().Split('"')[1];
             ReferenceId = acr.ReadString();
 
-            acr.ReadStrings(2);
+            while(acr.PeekString().Contains("param"))
+                Parameters.Add(acr.ReadString().Split(new []{"param "}, StringSplitOptions.None)[1]);
+            
+            ReturnType = acr.ReadString().Split(new []{"returns "}, StringSplitOptions.None)[1];
+            
+            if (acr.PeekString().Contains("body"))
+                Body = new BodyKeyword(acr); 
             
             return this;
         }

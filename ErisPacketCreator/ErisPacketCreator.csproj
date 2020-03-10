@@ -11,6 +11,7 @@
     <AssemblyName>ErisPacketCreator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,7 +45,14 @@
     <Compile Include="ActionScript\Interpreter\Keywords\ClassKeyword.cs" />
     <Compile Include="ActionScript\Interpreter\Keywords\IKeyword.cs" />
     <Compile Include="ActionScript\Interpreter\Keywords\InstanceKeyword.cs" />
-    <Compile Include="ActionScript\Interpreter\Keywords\MethodKeyword.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\BodyKeyword.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\CodeKeyword.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\Instructions\GetLocal.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\Instructions\IInstruction.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\Instructions\InstructionReader.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\Instructions\PushScope.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\Instructions\Unknown.cs" />
+    <Compile Include="ActionScript\Interpreter\Keywords\Method\MethodKeyword.cs" />
     <Compile Include="ActionScript\Interpreter\Keywords\Models\QName.cs" />
     <Compile Include="ActionScript\Interpreter\Keywords\Models\ReferenceID.cs" />
     <Compile Include="Program.cs" />

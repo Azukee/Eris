@@ -55,7 +55,7 @@ namespace ErisPacketCreator.ActionScript
         {
             string str = ReadString();
 
-            base.BaseStream.Seek(base.BaseStream.Position - str.Length, SeekOrigin.Begin);
+            base.BaseStream.Seek(base.BaseStream.Position - str.Length - 1, SeekOrigin.Begin);
 
             return str;
         }
