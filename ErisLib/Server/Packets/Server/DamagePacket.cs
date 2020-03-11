@@ -10,6 +10,7 @@ namespace ErisLib.Server.Packets.Server
         public ConditionEffects Effects;
         public ushort Damage;
         public bool Killed;
+        public bool ArmorPiece;
         public byte BulletId;
         public int ObjectId;
 
@@ -24,6 +25,7 @@ namespace ErisLib.Server.Packets.Server
                 Effects |= (ConditionEffects)(1 << r.ReadByte());
             Damage = r.ReadUInt16();
             Killed = r.ReadBoolean();
+            ArmorPiece = r.ReadBoolean();
             BulletId = r.ReadByte();
             ObjectId = r.ReadInt32();
         }
@@ -39,6 +41,7 @@ namespace ErisLib.Server.Packets.Server
             foreach (byte i in eff) w.Write(i);
             w.Write(Damage);
             w.Write(Killed);
+            w.Write(ArmorPiece);
             w.Write(BulletId);
             w.Write(ObjectId);
         }
