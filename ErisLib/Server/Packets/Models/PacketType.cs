@@ -1,3 +1,5 @@
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
 namespace ErisLib.Server.Packets.Models
 {
     public enum PacketType
@@ -95,6 +97,9 @@ namespace ErisLib.Server.Packets.Models
         RESKINUNLOCK,
         RESKINPET,
         KEYINFOREQUEST,
-        KEYINFORESPONSE
+        KEYINFORESPONSE,
+        CHATHELLO,
+        PETCHANGESKINMSG,
+        ACTIVEPETUPDATEREQUEST
     }
 }
