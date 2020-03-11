@@ -12,6 +12,8 @@ namespace ErisPacketCreator.ActionScript.Interpreter
     public class InterpretASAsm : IDisposable
     {
         public string File;
+
+        public ClassKeyword ClassKeyword;
         
         private List<IKeyword> _allKeywords = new List<IKeyword>();
         
@@ -28,7 +30,7 @@ namespace ErisPacketCreator.ActionScript.Interpreter
             using (ActionScriptReader acr = new ActionScriptReader(new FileStream(File, FileMode.Open))) {
                 string kw = acr.ReadString();
                 if (kw == "class " || kw == "class") {
-                    ClassKeyword ck = new ClassKeyword(acr);
+                    ClassKeyword = new ClassKeyword(acr);
                 }
             }
         }
